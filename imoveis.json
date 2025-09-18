@@ -1,0 +1,189 @@
+[
+  {
+    "id": 1,
+    "titulo": "Casa de Luxo - Jardins",
+    "tipo": "Residencial",
+    "status": "VENDA",
+    "localizacao": "São Paulo - SP",
+    "area": "450m²",
+    "dormitorios": "5 dorm. (2 suítes)",
+    "banheiros": "4 banh.",
+    "preco": "R$ 3.200.000",
+    "imagem": "http://static.photos/real-estate/640x360/1",
+    "descricao": "Imóvel de alto padrão localizado no bairro Jardins, com acabamento de luxo, ampla área de lazer, piscina, churrasqueira e garagem para 4 carros. Próximo a escolas, supermercados e fácil acesso às principais vias da cidade.",
+    "caracteristicas": [
+      "Área construída: 450m²",
+      "5 dormitórios (2 suítes)",
+      "4 banheiros",
+      "Piscina e área gourmet",
+      "Garagem para 4 carros",
+      "Portaria 24h"
+    ]
+  },
+  {
+    "id": 2,
+    "titulo": "Apartamento Higienópolis",
+    "tipo": "Residencial",
+    "status": "ALUGUEL",
+    "localizacao": "São Paulo - SP",
+    "area": "120m²",
+    "dormitorios": "3 dorm.",
+    "banheiros": "2 banh.",
+    "preco": "R$ 8.500/mês",
+    "imagem": "http://static.photos/real-estate/640x360/2",
+    "descricao": "Apartamento espaçoso em Higienópolis, com varanda gourmet, sala ampla, cozinha planejada e 2 vagas de garagem. Próximo ao metrô e comércio local.",
+    "caracteristicas": [
+      "Área construída: 120m²",
+      "3 dormitórios",
+      "2 banheiros",
+      "Varanda gourmet",
+      "2 vagas de garagem",
+      "Próximo ao metrô"
+    ]
+  },
+  {
+    "id": 3,
+    "titulo": "Cobertura Barra da Tijuca",
+    "tipo": "Residencial",
+    "status": "VENDA",
+    "localizacao": "Rio de Janeiro - RJ",
+    "area": "380m²",
+    "dormitorios": "4 dorm.",
+    "banheiros": "5 banh.",
+    "preco": "R$ 5.750.000",
+    "imagem": "http://static.photos/real-estate/640x360/3",
+    "descricao": "Cobertura de luxo na Barra da Tijuca, com vista para o mar, piscina privativa, 4 suítes e área gourmet. Condomínio com lazer completo.",
+    "caracteristicas": [
+      "Área construída: 380m²",
+      "4 dormitórios",
+      "5 banheiros",
+      "Piscina privativa",
+      "Área gourmet",
+      "Vista para o mar"
+    ]
+  },
+  {
+    "id": 4,
+    "titulo": "Casa Moderna - Moema",
+    "tipo": "Residencial",
+    "status": "VENDA",
+    "localizacao": "São Paulo - SP",
+    "area": "320m²",
+    "dormitorios": "4 dorm.",
+    "banheiros": "3 banh.",
+    "preco": "R$ 2.850.000",
+    "imagem": "https://www.inhousedesign.com.br/wp-content/uploads/2018/09/projeto-residencial-casa-moema-10.jpg",
+    "descricao": "Casa moderna em Moema, com arquitetura contemporânea, ambientes integrados, jardim e excelente localização.",
+    "caracteristicas": [
+      "Área construída: 320m²",
+      "4 dormitórios",
+      "3 banheiros",
+      "Jardim privativo",
+      "Ambientes integrados",
+      "Localização privilegiada"
+    ]
+  },
+  {
+    "id": 5,
+    "titulo": "Apartamento Brooklin",
+    "tipo": "Residencial",
+    "status": "ALUGUEL",
+    "localizacao": "São Paulo - SP",
+    "area": "95m²",
+    "dormitorios": "2 dorm.",
+    "banheiros": "2 banh.",
+    "preco": "R$ 6.200/mês",
+    "imagem": "https://i.pinimg.com/1200x/66/18/ce/6618ce9361bfd7c997dff9635f390cf5.jpg",
+    "descricao": "Apartamento no Brooklin, com varanda, sala ampla, cozinha planejada e 2 vagas de garagem. Próximo a shoppings e metrô.",
+    "caracteristicas": [
+      "Área construída: 95m²",
+      "2 dormitórios",
+      "2 banheiros",
+      "Varanda",
+      "2 vagas de garagem",
+      "Próximo ao metrô"
+    ]
+  },
+  {
+    "id": 6,
+    "titulo": "Terreno Alphaville",
+    "tipo": "Terreno",
+    "status": "VENDA",
+    "localizacao": "Barueri - SP",
+    "area": "600m²",
+    "dormitorios": "Terreno",
+    "banheiros": "",
+    "preco": "R$ 1.200.000",
+    "imagem": "https://i.pinimg.com/736x/3b/de/45/3bde45b6e70278721c313f2de788d347.jpg",
+    "descricao": "Terreno em Alphaville, excelente para construção residencial, condomínio fechado com segurança 24h.",
+    "caracteristicas": [
+      "Área total: 600m²",
+      "Condomínio fechado",
+      "Segurança 24h",
+      "Próximo a comércio"
+    ]
+  },
+  {
+    "id": 7,
+    "titulo": "Casa Condomínio - Granja Viana",
+    "tipo": "Residencial",
+    "status": "VENDA",
+    "localizacao": "Cotia - SP",
+    "area": "280m²",
+    "dormitorios": "3 dorm.",
+    "banheiros": "3 banh.",
+    "preco": "R$ 1.950.000",
+    "imagem": "https://i.pinimg.com/474x/7f/70/cf/7f70cf90d45bf12916f74f4278415063.jpg",
+    "descricao": "Casa em condomínio fechado na Granja Viana, com lazer completo, segurança e ótima localização.",
+    "caracteristicas": [
+      "Área construída: 280m²",
+      "3 dormitórios",
+      "3 banheiros",
+      "Lazer completo",
+      "Segurança",
+      "Ótima localização"
+    ]
+  },
+  {
+    "id": 8,
+    "titulo": "Apartamento Vila Olímpia",
+    "tipo": "Residencial",
+    "status": "ALUGUEL",
+    "localizacao": "São Paulo - SP",
+    "area": "75m²",
+    "dormitorios": "2 dorm.",
+    "banheiros": "1 banh.",
+    "preco": "R$ 4.800/mês",
+    "imagem": "https://i.pinimg.com/736x/20/67/ce/2067ced68658acc2a9bea8996347c12e.jpg",
+    "descricao": "Apartamento fechado em São Paulo, com lazer completo, segurança e ótima localização.",
+    "caracteristicas": [
+      "Área construída: 75m²",
+      "2 dormitórios",
+      "1 banheiros",
+      "Lazer completo",
+      "Segurança",
+      "Ótima localização"
+    ]
+  },
+  {
+    "id": 9,
+    "titulo": "Sobrado Tatuapé",
+    "tipo": "Residencial",
+    "status": "VENDA",
+    "localizacao": "São Paulo - SP",
+    "area": "180m²",
+    "dormitorios": "3 dorm.",
+    "banheiros": "2 banh.",
+    "preco": "R$ 1.750.000",
+    "imagem": "https://i.pinimg.com/736x/3f/dd/4a/3fdd4aeddfc75bcb3b839e5404c73889.jpg",
+    "descricao": "Sobrado em São Paulo, com lazer completo, segurança e ótima localização.",
+    "caracteristicas": [
+      "Área construída: 180m²",
+      "3 dormitórios",
+      "2 banheiros",
+      "Lazer completo",
+      "Segurança",
+      "Ótima localização"
+    ]
+  }
+]

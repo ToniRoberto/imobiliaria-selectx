@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imóveis - Select Imobiliária</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        .property-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .property-card {
+            transition: all 0.3s ease;
+        }
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .navbar.scrolled .nav-link {
+            color: #333;
+        }
+        .nav-link:hover {
+            color: #f59e0b;
+        }
+        .filter-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('http://static.photos/cityscape/1200x300/1');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="navbar fixed w-full z-50 py-4 px-6 lg:px-16 bg-white shadow-sm">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="text-2xl font-bold text-gray-900">
+                    <span class="text-yellow-500">SELECT-X</span> IMOBILIÁRIA
+                </a>
+            </div>
+            <div class="hidden lg:flex space-x-8">
+                <a href="index.html" class="nav-link text-gray-700 hover:text-yellow-400 font-medium">Home</a>
+                <a href="imoveis.html" class="nav-link text-yellow-500 hover:text-yellow-400 font-medium">Imóveis</a>
+                <a href="sobre.html" class="nav-link text-gray-700 hover:text-yellow-400 font-medium">Sobre Nós</a>
+                <a href="servicos.html" class="nav-link text-gray-700 hover:text-yellow-400 font-medium">Serviços</a>
+                <a href="contato.html" class="nav-link text-gray-700 hover:text-yellow-400 font-medium">Contato</a>
+            </div>
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white mt-4 rounded-lg shadow-lg py-2">
+            <a href="index.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Home</a>
+            <a href="imoveis.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Imóveis</a>
+            <a href="sobre.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Sobre Nós</a>
+            <a href="servicos.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Serviços</a>
+            <a href="contato.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Contato</a>
+        </div>
+    </nav>
+
+    <!-- Filter Section -->
+    <section class="filter-section pt-32 pb-20 px-4 text-white">
+        <div class="container mx-auto">
+            <h1 class="text-3xl md:text-4xl font-bold mb-6">Nossos Imóveis</h1>
+            <div class="flex flex-wrap items-center justify-between">
+                <p class="mb-4 md:mb-0">Encontre o imóvel perfeito para você</p>
+                <div class="flex items-center">
+                    <span class="mr-2">Ordenar por:</span>
+                    <select class="bg-gray-800 bg-opacity-50 text-white p-2 rounded border border-gray-600 focus:outline-none">
+                        <option>Mais Recentes</option>
+                        <option>Menor Preço</option>
+                        <option>Maior Preço</option>
+                        <option>Maior Área</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Property List -->
+    <section class="py-12 px-4 bg-gray-100">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Property 1 -->
+                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up">
+                    <div class="relative">
+                        <img src="https://www.inhousedesign.com.br/wp-content/uploads/2018/09/projeto-residencial-casa-moema-10.jpg" alt="Casa Moderna" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            VENDA
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Casa Moderna - Moema</h3>
+                            <span class="text-yellow-500 font-bold">R$ 2.850.000</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">São Paulo - SP</p>
+                        <div class="flex justify-between text-gray-500 border-t border-b border-gray-100 py-3 mb-4">
+                            <span><i data-feather="home" class="inline mr-1"></i> 320m²</span>
+                            <span><i data-feather="square" class="inline mr-1"></i> 4 dorm.</span>
+                            <span><i data-feather="droplet" class="inline mr-1"></i> 3 banh.</span>
+                        </div>
+                        <a href="detalhes.html?id=4" class="block text-center bg-gray-900 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                            Ver Detalhes
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Property 2 -->
+                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <img src="https://i.pinimg.com/1200x/66/18/ce/6618ce9361bfd7c997dff9635f390cf5.jpg" alt="Apartamento Brooklin" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            ALUGUEL
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Apartamento Brooklin</h3>
+                            <span class="text-yellow-500 font-bold">R$ 6.200/mês</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">São Paulo - SP</p>
+                        <div class="flex justify-between text-gray-500 border-t border-b border-gray-100 py-3 mb-4">
+                            <span><i data-feather="home" class="inline mr-1"></i> 95m²</span>
+                            <span><i data-feather="square" class="inline mr-1"></i> 2 dorm.</span>
+                            <span><i data-feather="droplet" class="inline mr-1"></i> 2 banh.</span>
+                        </div>
+                        <a href="detalhes.html?id=5" class="block text-center bg-gray-900 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                            Ver Detalhes
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Property 3 -->
+                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <img src="https://i.pinimg.com/736x/3b/de/45/3bde45b6e70278721c313f2de788d347.jpg" alt="Terreno Alphaville" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            VENDA
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Terreno Alphaville</h3>
+                            <span class="text-yellow-500 font-bold">R$ 1.200.000</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Barueri - SP</p>
+                        <div class="flex justify-between text-gray-500 border-t border-b border-gray-100 py-3 mb-4">
+                            <span><i data-feather="home" class="inline mr-1"></i> 600m²</span>
+                            <span><i data-feather="square" class="inline mr-1"></i> Terreno</span>
+                        </div>
+                        <a href="detalhes.html?id=6" class="block text-center bg-gray-900 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                            Ver Detalhes
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Property 4 -->
+                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up">
+                    <div class="relative">
+                        <img src="https://i.pinimg.com/474x/7f/70/cf/7f70cf90d45bf12916f74f4278415063.jpg" alt="Casa Condomínio" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            VENDA
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Condomínio - Granja Viana</h3>
+                            <span class="text-yellow-500 font-bold">R$ 1.950.000</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Cotia - SP</p>
+                        <div class="flex justify-between text-gray-500 border-t border-b border-gray-100 py-3 mb-4">
+                            <span><i data-feather="home" class="inline mr-1"></i> 280m²</span>
+                            <span><i data-feather="square" class="inline mr-1"></i> 3 dorm.</span>
+                            <span><i data-feather="droplet" class="inline mr-1"></i> 3 banh.</span>
+                        </div>
+                        <a href="detalhes.html?id=7" class="block text-center bg-gray-900 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                            Ver Detalhes
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Property 5 -->
+                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <img src="https://i.pinimg.com/736x/20/67/ce/2067ced68658acc2a9bea8996347c12e.jpg" alt="Apartamento Vila Olímpia" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            ALUGUEL
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Apartamento Vila Olímpia</h3>
+                            <span class="text-yellow-500 font-bold">R$ 4.800/mês</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">São Paulo - SP</p>
+                        <div class="flex justify-between text-gray-500 border-t border-b border-gray-100 py-3 mb-4">
+                            <span><i data-feather="home" class="inline mr-1"></i> 75m²</span>
+                            <span><i data-feather="square" class="inline mr-1"></i> 2 dorm.</span>
+                            <span><i data-feather="droplet" class="inline mr-1"></i> 1 banh.</span>
+                        </div>
+                        <a href="detalhes.html?id=8" class="block text-center bg-gray-900 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                            Ver Detalhes
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Property 6 -->
+                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <img src="https://i.pinimg.com/736x/3f/dd/4a/3fdd4aeddfc75bcb3b839e5404c73889.jpg" alt="Sobrado Tatuapé" class="w-full h-64 object-cover">
+                        <div class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-bold">
+                            VENDA
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold">Sobrado Tatuapé</h3>
+                            <span class="text-yellow-500 font-bold">R$ 1.750.000</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">São Paulo - SP</p>
+                        <div class="flex justify-between text-gray-500 border-t border-b border-gray-100 py-3 mb-4">
+                            <span><i data-feather="home" class="inline mr-1"></i> 180m²</span>
+                            <span><i data-feather="square" class="inline mr-1"></i> 3 dorm.</span>
+                            <span><i data-feather="droplet" class="inline mr-1"></i> 2 banh.</span>
+                        </div>
+                        <a href="detalhes.html?id=9" class="block text-center bg-gray-900 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                            Ver Detalhes
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10 flex justify-center">
+                <nav class="flex items-center space-x-2">
+                    <a href="#" class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                        <i data-feather="chevron-left"></i>
+                    </a>
+                    <a href="#" class="px-4 py-2 border border-yellow-500 bg-yellow-500 text-white rounded-md hover:bg-yellow-600">
+                        1
+                    </a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                        2
+                    </a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                        3
+                    </a>
+                    <a href="#" class="px-4 py-2 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50">
+                        <i data-feather="chevron-right"></i>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 px-4 bg-yellow-500">
+        <div class="container mx-auto text-center text-white" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-6">Não encontrou o que procura?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Entre em contato conosco e nossa equipe irá te ajudar a encontrar o imóvel perfeito para você</p>
+            <a href="contato.html" class="inline-block bg-white hover:bg-gray-100 text-yellow-500 font-bold py-3 px-8 rounded-full transition duration-300">
+                Fale Conosco
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        <span class="text-yellow-500">SELECT-X</span> IMOBILIÁRIA
+                    </h3>
+                    <p class="text-gray-400">Mais de 10 anos realizando sonhos e transformando vidas através da melhor assessoria imobiliária.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-yellow-500 transition duration-300">Home</a></li>
+                        <li><a href="imoveis.html" class="text-gray-400 hover:text-yellow-500 transition duration-300">Imóveis</a></li>
+                        <li><a href="sobre.html" class="text-gray-400 hover:text-yellow-500 transition duration-300">Sobre Nós</a></li>
+                        <li><a href="servicos.html" class="text-gray-400 hover:text-yellow-500 transition duration-300">Serviços</a></li>
+                        <li><a href="contato.html" class="text-gray-400 hover:text-yellow-500 transition duration-300">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i data-feather="map-pin" class="w-5 h-5 mr-2"></i>
+                            <span class="text-gray-400">R. Cel. Buchelle, 180 - Centro, Tijucas - SC</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="w-5 h-5 mr-2"></i>
+                            <span class="text-gray-400">(48) 3263-3090</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="w-5 h-5 mr-2"></i>
+                            <span class="text-gray-400">contato@selectximobiliarias.com.br</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://facebook.com/imobiliariasselectx" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-yellow-500 transition duration-300">
+                            <i data-feather="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://instagram.com/imobiliarias_selectx/" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-yellow-500 transition duration-300">
+                            <i data-feather="instagram" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <h5 class="font-bold mb-2">Newsletter</h5>
+                        <div class="flex">
+                            <input type="email" placeholder="Seu e-mail" class="bg-gray-800 text-white px-4 py-2 rounded-l-lg focus:outline-none w-full">
+                            <button class="bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded-r-lg">
+                                <i data-feather="send" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 SELECT-X Imobiliária. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/554832633090" target="_blank" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-50 group">
+        <div class="relative" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            
+            <img src="whatsapp.png">
+        </div>
+        <span class="absolute right-16 bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+            Fale conosco
+        </span>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Initialize Feather Icons
+        feather.replace();
+    </script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - Select Imobiliária</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .services-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('http://static.photos/real-estate/1200x300/2');
+            background-size: cover;
+            background-position: center;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        .navbar {
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .navbar.scrolled .nav-link {
+            color: #333;
+        }
+        .nav-link:hover {
+            color: #f59e0b;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="navbar fixed w-full z-50 py-4 px-6 lg:px-16 bg-white shadow-sm">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html" class="text-2xl font-bold text-gray-900">
+                    <span class="text-yellow-500">SELECT-X</span> IMOBILIÁRIA
+                </a>
+            </div>
+            <div class="hidden lg:flex space-x-8">
+                <a href="index.html" class="nav-link text-gray-700 hover:text-yellow-400 font-medium">Home</a>
+                <a href="imoveis.html" class="nav-link text-gray-700 hover:text-yellow-400 font-medium">Imóveis</a>
+                <a href="sobre.html" class="nav-link text-gray-700 hover:text-yellow-400 font-medium">Sobre Nós</a>
+                <a href="servicos.html" class="nav-link text-yellow-500 hover:text-yellow-400 font-medium">Serviços</a>
+                <a href="contato.html" class="nav-link text-gray-700 hover:text-yellow-400 font-medium">Contato</a>
+            </div>
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white mt-4 rounded-lg shadow-lg py-2">
+            <a href="index.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Home</a>
+            <a href="imoveis.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Imóveis</a>
+            <a href="sobre.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Sobre Nós</a>
+            <a href="servicos.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Serviços</a>
+            <a href="contato.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Contato</a>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="services-hero h-64 flex items-center justify-center text-center text-white" data-aos="fade-down">
+        <div>
+            <h1 class="text-4xl font-bold mb-2">Nossos Serviços</h1>
+            <p class="text-lg">Soluções completas para seu sonho imobiliário</p>
+        </div>
+    </section>
+    <!-- Serviços -->
+    <section class="py-16 px-4 lg:px-32 bg-gray-50">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-white rounded-lg shadow-md p-8 text-center" data-aos="fade-up">
+                    <i class="fas fa-home text-yellow-500 text-4xl mb-4"></i>
+                    <h2 class="text-xl font-bold mb-2">Compra e Venda</h2>
+                    <p>Intermediação de compra e venda de imóveis residenciais e comerciais com total segurança.</p>
+                </div>
+                <div class="service-card bg-white rounded-lg shadow-md p-8 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-key text-yellow-500 text-4xl mb-4"></i>
+                    <h2 class="text-xl font-bold mb-2">Locação</h2>
+                    <p>Gestão completa de locação, incluindo análise de crédito, contratos e administração de aluguéis.</p>
+                </div>
+                <div class="service-card bg-white rounded-lg shadow-md p-8 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-building text-yellow-500 text-4xl mb-4"></i>
+                    <h2 class="text-xl font-bold mb-2">Avaliação de Imóveis</h2>
+                    <p>Laudos técnicos e avaliações precisas para venda, locação ou garantia bancária.</p>
+                </div>
+                <div class="service-card bg-white rounded-lg shadow-md p-8 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-user-tie text-yellow-500 text-4xl mb-4"></i>
+                    <h2 class="text-xl font-bold mb-2">Consultoria Jurídica</h2>
+                    <p>Orientação jurídica especializada para contratos, regularização e documentação imobiliária.</p>
+                </div>
+                <div class="service-card bg-white rounded-lg shadow-md p-8 text-center" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-tools text-yellow-500 text-4xl mb-4"></i>
+                    <h2 class="text-xl font-bold mb-2">Administração de Condomínios</h2>
+                    <p>Gestão eficiente de condomínios residenciais e comerciais, com transparência e tecnologia.</p>
+                </div>
+                <div class="service-card bg-white rounded-lg shadow-md p-8 text-center" data-aos="fade-up" data-aos-delay="500">
+                    <i class="fas fa-search-location text-yellow-500 text-4xl mb-4"></i>
+                    <h2 class="text-xl font-bold mb-2">Busca Personalizada</h2>
+                    <p>Encontramos o imóvel ideal para você, de acordo com suas necessidades e perfil.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">
+                        <span class="text-yellow-500">SELECT-X</span> IMOBILIÁRIA
+                    </h3>
+                    <p class="text-gray-400">Mais de 10 anos realizando sonhos e transformando vidas através da melhor assessoria imobiliária.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-yellow-500 transition duration-300">Home</a></li>
+                        <li><a href="imoveis.html" class="text-gray-400 hover:text-yellow-500 transition duration-300">Imóveis</a></li>
+                        <li><a href="sobre.html" class="text-gray-400 hover:text-yellow-500 transition duration-300">Sobre Nós</a></li>
+                        <li><a href="servicos.html" class="text-gray-400 hover:text-yellow-500 transition duration-300">Serviços</a></li>
+                        <li><a href="contato.html" class="text-gray-400 hover:text-yellow-500 transition duration-300">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i data-feather="map-pin" class="w-5 h-5 mr-2"></i>
+                            <span class="text-gray-400">R. Cel. Buchelle, 180 - Centro, Tijucas - SC</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="w-5 h-5 mr-2"></i>
+                            <span class="text-gray-400">(48) 3263-3090</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="w-5 h-5 mr-2"></i>
+                            <span class="text-gray-400">contato@selectximobiliarias.com.br</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://facebook.com/imobiliariasselectx" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-yellow-500 transition duration-300">
+                            <i data-feather="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="https://instagram.com/imobiliarias_selectx/" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-yellow-500 transition duration-300">
+                            <i data-feather="instagram" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <h5 class="font-bold mb-2">Newsletter</h5>
+                        <div class="flex">
+                            <input type="email" placeholder="Seu e-mail" class="bg-gray-800 text-white px-4 py-2 rounded-l-lg focus:outline-none w-full">
+                            <button class="bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded-r-lg">
+                                <i data-feather="send" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 SELECT-X Imobiliária. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/554832633090" target="_blank" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-50 group">
+        <div class="relative" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+            
+            <img src="whatsapp.png">
+        </div>
+        <span class="absolute right-16 bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+            Fale conosco
+        </span>
+    </a>
+
+    <script>
+        AOS.init();
+        feather.replace();
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
