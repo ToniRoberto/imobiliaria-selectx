@@ -1,437 +1,856 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select Imobiliária - Seu sonho imobiliário realizado</title>
-    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-    <script src="https://unpkg.com/feather-icons"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .hero-section {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.pinimg.com/736x/18/23/fe/1823fe815c7b0cf3370682edfedf6a47.jpg');
-            background-size: cover;
-            background-position: center;
-        }
-        .property-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        .property-card {
-            transition: all 0.3s ease;
-        }
-        .navbar {
-            transition: all 0.3s ease;
-        }
-        .navbar.scrolled {
-            background-color: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        .navbar.scrolled .nav-link {
-            color: #333;
-        }
-        .nav-link:hover {
-            color: #f59e0b;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select X Imóveis</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (ícones) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: #333;
+    }
+
+    /* HEADER */
+    header {
+      background: #0c524c; /* verde petróleo */
+      color: white;
+      padding: 8px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    /* menu principal */
+header, nav {
+  position: relative;
+  z-index: 1000; /* fica acima do hero */
+}
+
+    header .left span {
+      margin-right: 20px;
+    }
+
+    header .right a {
+      color: white;
+      margin-left: 15px;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    /* NAVBAR */
+    nav {
+      background: #0c524c;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    nav .logo img {
+      height: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul li {
+      margin-left: 25px;
+      position: relative;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    nav ul li:hover ul {
+      display: block;
+    }
+
+    nav ul li ul {
+      display: none;
+      position: absolute;
+      top: 25px;
+      left: 0;
+      background: #0c524c;
+      list-style: none;
+      padding: 10px;
+    }
+
+    nav ul li ul li {
+      margin: 10px 0;
+    }
+
+    nav ul li ul li a {
+      color: #fff;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      background: url('https://source.unsplash.com/1600x900/?beach') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+    }
+
+    .search-box {
+      display: flex;
+      background: white;
+      border-radius: 5px;
+      overflow: hidden;
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .search-box select, .search-box input {
+      padding: 12px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      flex: 1;
+    }
+
+    .search-box button {
+      background: #0c524c;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      cursor: pointer;
+    }
+
+    /* BOTÃO FIXO WHATSAPP */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      z-index: 999;
+    }
+
+    .whatsapp-float:hover {
+      background: #1ebe5b;
+    }
+    /* HERO */
+    .hero {
+      position: relative;
+      height: 70vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    /* SLIDES */
+    .hero-slider {
+      position: absolute;
+      top: 0; 
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero-slider .slide {
+        position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: contain;  /* mostra a imagem inteira */
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+    }
+
+    .hero-slider .slide.active {
+      opacity: 1;
+    }
+
+    /* CONTEÚDO */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content h1 {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
+    }
+
+    /* Caixa de busca */
+    .search-box {
+      display: flex;
+      background: white;
+      border-radius: 5px;
+      overflow: hidden;
+      max-width: 700px;
+      width: 100%;
+    }
+
+    .search-box select,
+    .search-box input {
+      padding: 12px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      flex: 1;
+    }
+
+    .search-box button {
+      background: #0c524c;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      cursor: pointer;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .section {
+      margin: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 15px;
+    }
+
+    .section-title {
+      background: #00695c;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px;
+      border-radius: 6px 6px 0 0;
+      margin-bottom: 15px;
+    }
+
+    .carousel {
+      display: flex;
+      gap: 15px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding-bottom: 10px;
+    }
+
+    .card {
+      min-width: 300px;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 12px;
+    }
+
+    .card-body h3 {
+      font-size: 16px;
+      margin: 0 0 5px;
+      color: #333;
+    }
+
+    .location {
+      font-size: 14px;
+      color: #444;
+      margin-bottom: 8px;
+    }
+
+    .icons {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin: 8px 0;
+    }
+
+    .icons i {
+      margin-right: 4px;
+      color: #00695c;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #00695c;
+      margin-top: 8px;
+    }
+
+    .buscas-populares {
+  background: #f5f5f5;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.buscas-populares h2 {
+  background: #006666;
+  color: #fff;
+  padding: 10px 15px;
+  margin-bottom: 15px;
+  border-left: 6px solid goldenrod;
+  font-size: 20px;
+}
+
+.links-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.links-grid ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.links-grid li {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #222;
+}
+
+.links-grid li span {
+  background: #eee;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #444;
+  margin-left: 6px;
+}
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.cta-box {
+  background: #006666;
+  color: #fff;
+  padding: 20px;
+  text-align: left;
+  border-bottom: 4px solid goldenrod;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.cta-box i {
+  font-size: 30px;
+  color: goldenrod;
+}
+
+.newsletter {
+  background: linear-gradient(to bottom, #fff, #f0f0f0);
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.08);
+  margin: 20px auto;
+  max-width: 1000px;
+}
+
+.newsletter-box {
+  text-align: center;
+  width: 100%;
+}
+
+.newsletter-box h2 {
+  color: #006666;
+  margin-bottom: 10px;
+}
+
+.newsletter-box p {
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-group input {
+  padding: 10px 35px 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  min-width: 250px;
+}
+
+.input-group .icon {
+  position: absolute;
+  right: 10px;
+  color: #666;
+}
+
+.btn-cadastrar {
+  background: #006666;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.3s;
+}
+
+.btn-cadastrar:hover {
+  background: #004d4d;
+}
+
+.politica {
+  font-size: 13px;
+  margin-top: 15px;
+  color: #444;
+}
+
+.politica a {
+  color: #006666;
+  text-decoration: underline;
+}
+
+footer {
+    background-color: #004B46; /* cor similar ao da imagem */
+    color: #ffffff;
+    padding: 40px 20px;
+    font-size: 14px;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .footer-column {
+    flex: 1 1 200px;
+    min-width: 200px;
+  }
+
+  .footer-column h3 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #00A79D;
+  }
+
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-column ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer-column ul li a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .footer-column ul li a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 12px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    padding-top: 10px;
+    color: #cccccc;
+  }
+
+  .footer-column ul li svg {
+    width: 16px;
+    height: 16px;
+    fill: #ffffff;
+  }
+
+  </style>
 </head>
-<body class="font-sans">
-    <!-- Navigation -->
-    <nav class="navbar fixed w-full z-50 py-4 px-6 lg:px-16 bg-transparent bg-white">
-        <div class="flex justify-between items-center">
-            <div class="flex items-center">
-                <a href="index.html" class="text-2xl font-bold text-white">
-                    <span class="text-yellow-500"><img src="logo.jpeg" style="width: 150px;"></span>
-                </a>
-            </div>
-            <div class="hidden lg:flex space-x-8">
-                <a href="index.html" class="nav-link text-black hover:text-yellow-400 font-medium">Home</a>
-                <a href="imoveis.html" class="nav-link text-black hover:text-yellow-400 font-medium">Imóveis</a>
-                <a href="sobre.html" class="nav-link text-black hover:text-yellow-400 font-medium">Sobre Nós</a>
-                <a href="servicos.html" class="nav-link text-black hover:text-yellow-400 font-medium">Serviços</a>
-                <a href="contato.html" class="nav-link text-black hover:text-yellow-400 font-medium">Contato</a>
-            </div>
-            <div class="lg:hidden">
-                <button id="mobile-menu-button" class="text-black focus:outline-none">
-                    <i data-feather="menu"></i>
-                </button>
-            </div>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="left">
+      <span>Creci/SC 6.268-J - Tijucas / SC</span>
+      <span><i class="fa-solid fa-phone"></i> (48) 3263-3090</span>
+      <span><i class="fa-brands fa-whatsapp"></i> Atendimento via WhatsApp</span>
+    </div>
+    <div class="right">
+      <a href="#"><i class="fa-solid fa-star"></i> imóveis favoritos</a>
+      <a href="#">encontre rápido <i class="fa-solid fa-chevron-down"></i></a>
+      <a href="#"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">
+      <img src="img/logo_site-5.png" alt="Zart Imóveis">
+    </div>
+    <ul>
+      <li><a href="#">A IMOBILIÁRIA</a></li>
+      <li>
+        <a href="#">VENDAS <i class="fa-solid fa-chevron-down"></i></a>
+        <ul>
+          <li><a href="#">Casas</a></li>
+          <li><a href="#">Apartamentos</a></li>
+        </ul>
+      </li>
+      <li><a href="#">BLOG</a></li>
+      <li><a href="#">CONTATO</a></li>
+      <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <!-- Banner rotativo -->
+    <div class="hero-slider">
+      <div class="slide active" style="background-image: url('img/img1.png');"></div>
+      <div class="slide" style="background-image: url('img/img2.png');"></div>
+    </div>
+
+    <!-- Conteúdo por cima -->
+    <div class="hero-content">
+      <h1>Encontre imóveis em Bombinhas e Região</h1>
+      <div class="search-box">
+        <select>
+          <option>Todos os Imóveis</option>
+          <option>Casas</option>
+          <option>Apartamentos</option>
+        </select>
+        <select>
+          <option>Todos os Valores</option>
+          <option>Até R$ 200.000</option>
+          <option>R$ 200.000 - R$ 500.000</option>
+        </select>
+        <input type="text" placeholder="Digite a cidade ou bairro...">
+        <button>🔍</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="section">
+    <div class="section-title">Venda - Imóveis em Destaque</div>
+    <div class="carousel">
+      
+      <!-- Card -->
+      <div class="card">
+        <img src="img/card1.jpg" alt="Imóvel">
+        <div class="card-body">
+          <h3 style="width: 280px;">SOBRADO GEMINADO DE ESQUINA NO FLORA FLORA EM TIJUCAS SC!</h3>
+          <p class="location">Cobertura</p>
+          <div class="icons">
+            <span><i class="fa fa-bed"></i> 2</span>
+            <span><i class="fa fa-bath"></i> 3</span>
+            <span><i class="fa fa-car"></i> 1</span>
+            <span><i class="fa fa-ruler-combined"></i> 70m²</span>
+          </div>
+          <div class="price">R$ 450.000,00</div>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white mt-4 rounded-lg shadow-lg py-2">
-            <a href="index.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Home</a>
-            <a href="imoveis.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Imóveis</a>
-            <a href="sobre.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Sobre Nós</a>
-            <a href="servicos.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Serviços</a>
-            <a href="contato.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Contato</a>
+      </div>
+
+      <!-- Outro Card -->
+      <div class="card">
+        <img src="img/card2.jpg" alt="Imóvel">
+        <div class="card-body">
+          <h3>BOMBINHAS - CANTO GRANDE</h3>
+          <p class="location">Cobertura</p>
+          <div class="icons">
+            <span><i class="fa fa-bed"></i> 2</span>
+            <span><i class="fa fa-bath"></i> 2</span>
+            <span><i class="fa fa-car"></i> 2</span>
+            <span><i class="fa fa-ruler-combined"></i> 141m²</span>
+          </div>
+          <div class="price">R$ 1.190.000,00</div>
         </div>
-    </nav>
+      </div>
 
-    <!-- Hero Section -->
-    <section class="hero-section h-screen flex items-center justify-center text-white relative">
-        <div class="container mx-auto px-6 text-center" data-aos="fade-up">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">Encontre o imóvel dos seus sonhos</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Mais de 10 anos realizando sonhos e transformando vidas através da melhor assessoria imobiliária</p>
-            <a href="imoveis.html" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-full transition duration-300 inline-block">
-                Ver Imóveis
-            </a>
+      <!-- Outro Card -->
+      <div class="card">
+        <img src="img/card3.jpg" alt="Imóvel">
+        <div class="card-body">
+          <h3>BOMBINHAS - CANTO GRANDE</h3>
+          <p class="location">Cobertura</p>
+          <div class="icons">
+            <span><i class="fa fa-bed"></i> 3</span>
+            <span><i class="fa fa-bath"></i> 3</span>
+            <span><i class="fa fa-car"></i> 2</span>
+            <span><i class="fa fa-ruler-combined"></i> 169m²</span>
+          </div>
+          <div class="price">R$ 3.890.000,00</div>
         </div>
-        <div class="absolute bottom-10 left-0 right-0 text-center">
-            <a href="#destaques" class="text-white animate-bounce inline-block">
-                <i data-feather="chevron-down" class="w-10 h-10"></i>
-            </a>
+      </div>
+            <!-- Outro Card -->
+      <div class="card">
+        <img src="img/card3.jpg" alt="Imóvel">
+        <div class="card-body">
+          <h3>BOMBINHAS - CANTO GRANDE</h3>
+          <p class="location">Cobertura</p>
+          <div class="icons">
+            <span><i class="fa fa-bed"></i> 3</span>
+            <span><i class="fa fa-bath"></i> 3</span>
+            <span><i class="fa fa-car"></i> 2</span>
+            <span><i class="fa fa-ruler-combined"></i> 169m²</span>
+          </div>
+          <div class="price">R$ 3.890.000,00</div>
         </div>
-    </section>
+      </div>
 
-    <!-- Property Search -->
-    <section class="bg-gray-100 py-12 px-4">
-        <div class="container mx-auto bg-white rounded-xl shadow-lg p-6 -mt-16 relative z-10" data-aos="fade-up">
-            <h2 class="text-2xl font-bold text-center mb-6">Encontre seu imóvel ideal</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div>
-                    <label class="block text-gray-700 mb-2">Tipo de Imóvel</label>
-                    <select class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
-                        <option>Todos</option>
-                        <option>Casa</option>
-                        <option>Apartamento</option>
-                        <option>Terreno</option>
-                        <option>Comercial</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-gray-700 mb-2">Localização</label>
-                    <select class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
-                        <option>Todas</option>
-                        <option>São Paulo</option>
-                        <option>Rio de Janeiro</option>
-                        <option>Belo Horizonte</option>
-                        <option>Curitiba</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-gray-700 mb-2">Preço</label>
-                    <select class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
-                        <option>Qualquer preço</option>
-                        <option>Até R$ 500.000</option>
-                        <option>R$ 500.000 - R$ 1.000.000</option>
-                        <option>Acima de R$ 1.000.000</option>
-                    </select>
-                </div>
-                <div class="flex items-end">
-                    <button class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
-                        Buscar <i data-feather="search" class="inline ml-2"></i>
-                    </button>
-                </div>
-            </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Lançamentos</div>
+    <div class="carousel">
+      
+      <!-- Card -->
+      <div class="card">
+        <img src="img/card4.jpg" style="width: 600; height: 400;" alt="Imóvel">
+        <div class="card-body">
+          <h3>BOMBINHAS - CANTO GRANDE</h3>
+          <p class="location">Cobertura</p>
+          <div class="icons">
+            <span><i class="fa fa-bed"></i> 3</span>
+            <span><i class="fa fa-bath"></i> 3</span>
+            <span><i class="fa fa-car"></i> 2</span>
+            <span><i class="fa fa-ruler-combined"></i> 150m²</span>
+          </div>
+          <div class="price">R$ 2.300.000,00</div>
         </div>
-    </section>
+      </div>
 
-    <!-- Featured Properties -->
-    <section id="destaques" class="py-16 px-4">
-        <div class="container mx-auto">
-            <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-3xl font-bold mb-4">Imóveis em Destaque</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Confira nossos melhores imóveis selecionados especialmente para você</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Property 1 -->
-                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up">
-                    <div class="relative">
-                        <img src="https://i.pinimg.com/736x/06/95/b1/0695b126d9ae42420918312e828b80fd.jpg" alt="Casa de Luxo" class="w-full h-64 object-cover">
-                        <div class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-                            VENDA
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-bold">Casa de Luxo - Jardins</h3>
-                            <span class="text-yellow-500 font-bold">R$ 3.200.000</span>
-                        </div>
-                        <p class="text-gray-600 mb-4">São Paulo - SP</p>
-                        <div class="flex justify-between text-gray-500 border-t border-b border-gray-100 py-3 mb-4">
-                            <span><i data-feather="home" class="inline mr-1"></i> 450m²</span>
-                            <span><i data-feather="square" class="inline mr-1"></i> 5 dorm.</span>
-                            <span><i data-feather="droplet" class="inline mr-1"></i> 4 banh.</span>
-                        </div>
-                        <a href="detalhes.html?id=1" class="block text-center bg-gray-900 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
-                            Ver Detalhes
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Property 2 -->
-                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                    <div class="relative">
-                        <img src="https://i.pinimg.com/1200x/9a/31/af/9a31af41f2c733246a4df00dcd7eec36.jpg" alt="Apartamento Higienópolis" class="w-full h-64 object-cover">
-                        <div class="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-                            ALUGUEL
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-bold">Apartamento Higienópolis</h3>
-                            <span class="text-yellow-500 font-bold">R$ 8.500/mês</span>
-                        </div>
-                        <p class="text-gray-600 mb-4">São Paulo - SP</p>
-                        <div class="flex justify-between text-gray-500 border-t border-b border-gray-100 py-3 mb-4">
-                            <span><i data-feather="home" class="inline mr-1"></i> 120m²</span>
-                            <span><i data-feather="square" class="inline mr-1"></i> 3 dorm.</span>
-                            <span><i data-feather="droplet" class="inline mr-1"></i> 2 banh.</span>
-                        </div>
-                        <a href="detalhes.html?id=2" class="block text-center bg-gray-900 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
-                            Ver Detalhes
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Property 3 -->
-                <div class="property-card bg-white rounded-xl overflow-hidden shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                    <div class="relative">
-                        <img src="https://i.pinimg.com/1200x/20/e6/27/20e6276b37f570bc19c7d755e4fd585e.jpg" alt="Cobertura Barra da Tijuca" class="w-full h-64 object-cover">
-                        <div class="absolute top-4 right-4 bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-                            VENDA
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="text-xl font-bold">Cobertura Barra da Tijuca</h3>
-                            <span class="text-yellow-500 font-bold">R$ 5.750.000</span>
-                        </div>
-                        <p class="text-gray-600 mb-4">Rio de Janeiro - RJ</p>
-                        <div class="flex justify-between text-gray-500 border-t border-b border-gray-100 py-3 mb-4">
-                            <span><i data-feather="home" class="inline mr-1"></i> 380m²</span>
-                            <span><i data-feather="square" class="inline mr-1"></i> 4 dorm.</span>
-                            <span><i data-feather="droplet" class="inline mr-1"></i> 5 banh.</span>
-                        </div>
-                        <a href="detalhes.html?id=3" class="block text-center bg-gray-900 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
-                            Ver Detalhes
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-10" data-aos="fade-up">
-                <a href="imoveis.html" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-full transition duration-300">
-                    Ver Todos os Imóveis
-                </a>
-            </div>
+      <!-- Outro Card -->
+      <div class="card">
+        <img src="img/card5.jpg" alt="Imóvel">
+        <div class="card-body">
+          <h3>BOMBINHAS - MARISCAL</h3>
+          <p class="location">Apartamento</p>
+          <div class="icons">
+            <span><i class="fa fa-bed"></i> 2</span>
+            <span><i class="fa fa-bath"></i> 2</span>
+            <span><i class="fa fa-car"></i> 1</span>
+            <span><i class="fa fa-ruler-combined"></i> 90m²</span>
+          </div>
+          <div class="price">Consulte-nos</div>
         </div>
-    </section>
+      </div>
 
-    <!-- Services -->
-    <section class="py-16 px-4 bg-gray-100">
-        <div class="container mx-auto">
-            <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-3xl font-bold mb-4">Nossos Serviços</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Oferecemos soluções completas para todas as suas necessidades imobiliárias</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center" data-aos="fade-up">
-                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i data-feather="home" class="w-8 h-8 text-yellow-500"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Compra e Venda</h3>
-                    <p class="text-gray-600">Ajudamos você a encontrar o imóvel perfeito ou a vender seu imóvel pelo melhor preço do mercado.</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i data-feather="dollar-sign" class="w-8 h-8 text-yellow-500"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Avaliação de Imóveis</h3>
-                    <p class="text-gray-600">Serviço profissional de avaliação para garantir que você obtenha o melhor negócio possível.</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i data-feather="key" class="w-8 h-8 text-yellow-500"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Administração de Aluguéis</h3>
-                    <p class="text-gray-600">Gerenciamos seu imóvel alugado, cuidando de tudo desde a seleção de inquilinos até a manutenção.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
+  </div>
 
-    <!-- Testimonials -->
-    <section class="py-16 px-4">
-        <div class="container mx-auto">
-            <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-3xl font-bold mb-4">O Que Nossos Clientes Dizem</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Depoimentos de quem já realizou o sonho da casa própria com a nossa ajuda</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up">
-                    <div class="flex items-center mb-4">
-                        <div class="flex-shrink-0">
-                            <img src="http://static.photos/people/100x100/1" alt="Maria Silva" class="w-12 h-12 rounded-full">
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="font-bold">Maria Silva</h4>
-                            <div class="flex text-yellow-400">
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">"A Select Imobiliária foi incrível em todo o processo de compra da minha casa. Profissionais muito atenciosos e competentes."</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center mb-4">
-                        <div class="flex-shrink-0">
-                            <img src="http://static.photos/people/100x100/2" alt="João Santos" class="w-12 h-12 rounded-full">
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="font-bold">João Santos</h4>
-                            <div class="flex text-yellow-400">
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">"Consegui vender meu apartamento em tempo recorde e por um valor acima do que eu esperava. Recomendo a todos!"</p>
-                </div>
-                <div class="bg-white p-8 rounded-xl shadow-lg" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-center mb-4">
-                        <div class="flex-shrink-0">
-                            <img src="http://static.photos/people/100x100/3" alt="Ana Oliveira" class="w-12 h-12 rounded-full">
-                        </div>
-                        <div class="ml-4">
-                            <h4 class="font-bold">Ana Oliveira</h4>
-                            <div class="flex text-yellow-400">
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                                <i data-feather="star" class="w-4 h-4 fill-current"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-gray-600">"Estava procurando um apartamento há meses e a Select me encontrou exatamente o que eu queria. Atendimento personalizado e eficiente."</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="buscas-populares">
+  <h2>Informações</h2>
 
-    <!-- Call to Action -->
-    <section class="py-16 px-4 bg-yellow-500">
-        <div class="container mx-auto text-center text-white" data-aos="fade-up">
-            <h2 class="text-3xl font-bold mb-6">Pronto para encontrar seu imóvel dos sonhos?</h2>
-            <p class="text-xl mb-8 max-w-2xl mx-auto">Entre em contato conosco e deixe nossa equipe especializada te ajudar</p>
-            <a href="contato.html" class="inline-block bg-white hover:bg-gray-100 text-yellow-500 font-bold py-3 px-8 rounded-full transition duration-300">
-                Fale Conosco
-            </a>
-        </div>
-    </section>
+  <div class="cta-grid">
+    <div class="cta-box">
+      <i class="fas fa-building"></i>
+      <p><strong>Quer vender seu imóvel?</strong><br>Cadastre-se e anuncie conosco</p>
+    </div>
+    <div class="cta-box">
+      <i class="fas fa-crosshairs"></i>
+      <p><strong>Não encontrou o que procurava?</strong><br>Entre em contato</p>
+    </div>
+    <div class="cta-box">
+      <i class="fas fa-star"></i>
+      <p><strong>Meus imóveis Favoritos</strong><br>Lista de imóveis adicionados</p>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12 px-4">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-2xl font-bold mb-4">
-                        <span class="text-yellow-500">SELECT-X</span> IMOBILIÁRIA
-                    </h3>
-                    <p class="text-gray-400">Mais de 10 anos realizando sonhos e transformando vidas através da melhor assessoria imobiliária.</p>
-                </div>
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Links Rápidos</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-yellow-500 transition duration-300">Home</a></li>
-                        <li><a href="imoveis.html" class="text-gray-400 hover:text-yellow-500 transition duration-300">Imóveis</a></li>
-                        <li><a href="sobre.html" class="text-gray-400 hover:text-yellow-500 transition duration-300">Sobre Nós</a></li>
-                        <li><a href="servicos.html" class="text-gray-400 hover:text-yellow-500 transition duration-300">Serviços</a></li>
-                        <li><a href="contato.html" class="text-gray-400 hover:text-yellow-500 transition duration-300">Contato</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Contato</h4>
-                    <ul class="space-y-2">
-                        <li class="flex items-center">
-                            <i data-feather="map-pin" class="w-5 h-5 mr-2"></i>
-                            <span class="text-gray-400">R. Cel. Buchelle, 180 - Centro, Tijucas - SC</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i data-feather="phone" class="w-5 h-5 mr-2"></i>
-                            <span class="text-gray-400">(48) 3263-3090</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i data-feather="mail" class="w-5 h-5 mr-2"></i>
-                            <span class="text-gray-400">contato@selectximobiliarias.com.br</span>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-bold mb-4">Redes Sociais</h4>
-                    <div class="flex space-x-4">
-                        <a href="https://facebook.com/imobiliariasselectx" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-yellow-500 transition duration-300">
-                            <i data-feather="facebook" class="w-5 h-5"></i>
-                        </a>
-                        <a href="https://instagram.com/imobiliarias_selectx/" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-yellow-500 transition duration-300">
-                            <i data-feather="instagram" class="w-5 h-5"></i>
-                        </a>
-                    </div>
-                    <div class="mt-6">
-                        <h5 class="font-bold mb-2">Newsletter</h5>
-                        <div class="flex">
-                            <input type="email" placeholder="Seu e-mail" class="bg-gray-800 text-white px-4 py-2 rounded-l-lg focus:outline-none w-full">
-                            <button class="bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded-r-lg">
-                                <i data-feather="send" class="w-5 h-5"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400">
-                <p>&copy; 2023 SELECT-X Imobiliária. Todos os direitos reservados.</p>
-            </div>
-        </div>
-    </footer>
+<section class="newsletter">
+  <div class="newsletter-box">
+    <h2>Receba nosso Newsletter</h2>
+    <p>Cadastre-se para receber novidades por email.</p>
 
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/554832633090" target="_blank" class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-all duration-300 z-50 group">
-        <div class="relative" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-            
-            <img src="whatsapp.png">
-        </div>
-        <span class="absolute right-16 bg-green-500 text-white text-sm font-medium px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-            Fale conosco
-        </span>
-    </a>
+    <form class="newsletter-form">
+      <div class="input-group">
+        <input type="text" placeholder="nome completo..." required>
+        <span class="icon"><i class="fas fa-user"></i></span>
+      </div>
 
-    <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
+      <div class="input-group">
+        <input type="email" placeholder="email..." required>
+        <span class="icon"><i class="fas fa-envelope"></i></span>
+      </div>
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
+      <button type="submit" class="btn-cadastrar">
+        <i class="fas fa-angle-double-right"></i> cadastrar
+      </button>
+    </form>
 
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true
-        });
+    <p class="politica">
+      <i class="fas fa-lock"></i> Ao enviar você está aceitando a 
+      <a href="#">política de privacidade</a>.
+    </p>
+  </div>
+</section>
 
-        // Initialize Feather Icons
-        feather.replace();
-    </script>
+<footer>
+  <div class="footer-container">
+    <!-- Coluna 1 -->
+    <div class="footer-column">
+      <h3>ZART IMÓVEIS</h3>
+      <ul>
+        <li>🏢 R. Cel. Buchelle, 180 - Centro, Tijucas - SC</li>
+        <!--
+        <li>🛣️ Canto Grande - 88215-000</li>
+        
+        <li>🚩 Bombinhas / SC</li>
+        <li>📍 <a href="#">mapa google</a></li>
+      -->
+      </ul>
+    </div>
+
+    <!-- Coluna 2 -->
+    <div class="footer-column">
+      <h3>FALE CONOSCO</h3>
+      <ul>
+        <li>📞 <a href="https://wa.me/554832633090"> (48) 3263-3090 (WhatsApp)</a></li>
+        <li>✉️ <a href="mailto:contato@selectximobiliarias.com.br">contato@selectximobiliarias.com.br</a></li>
+        <li>📎 <a href="#">trabalhe conosco</a></li>
+      </ul>
+    </div>
+
+    <!-- Coluna 3 -->
+     
+    <div class="footer-column">
+      <h3>VEJA MAIS</h3>
+      <ul>
+        <!--
+        <li>📰 <a href="#">receba nosso newsletter</a></li>
+        <li>📊 <a href="#">indicadores financeiros</a></li>
+        -->
+        <li>💲 <a href="#">cadastre seu imóvel</a></li>
+        <!--
+        <li>📋 <a href="#">mapa de imóveis</a></li>
+        -->
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2023-2025 Select X Imóveis - CRECI/SC 6.268 - J — Todos os direitos reservados. 🔒 <a href="#" style="color: #cccccc;">Política de Privacidade</a>
+  </div>
+</footer>
+
+
+
+
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/5547999117086" target="_blank" class="whatsapp-float">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+    <!-- SCRIPT -->
+  <script>
+    const slides = document.querySelectorAll('.hero-slider .slide');
+    let index = 0;
+
+    function showNextSlide() {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }
+
+    setInterval(showNextSlide, 4000); // troca a cada 4 segundos
+  </script>
+
+  <script>
+    document.querySelectorAll(".cta-box").forEach(box => {
+  box.addEventListener("mouseover", () => {
+    box.style.transform = "scale(1.03)";
+    box.style.transition = "0.3s";
+  });
+  box.addEventListener("mouseout", () => {
+    box.style.transform = "scale(1)";
+  });
+});
+
+  </script>
+
+  
 </body>
 </html>
